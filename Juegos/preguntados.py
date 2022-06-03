@@ -37,6 +37,8 @@ class Preguntados:
         '¿Que pais africano fue fundado por esclavos americanos liberados en 1847?'
         '¿Cual es el pais mas grande del mundo?',
         '¿cual fue el primer imperio que existio en el mundo?',
+        '¿Quien gano el mundial de 2010?',
+        '¿Quien gano el mundial de 2006?',
         ]
         self.respuestas = [
         ['11','12','9','10'],
@@ -73,7 +75,9 @@ class Preguntados:
         ['Yugoslavia','Del Imperio Austriaco','Croacia','Italia'],
         ['Liberia','Ghana','Sokoto','Benin'],
         ['Rusia', 'Australia', 'China', 'India'],
-        ['Acadio', 'Egipto', 'Grecia', 'Persia']
+        ['Acadio', 'Egipto', 'Grecia', 'Persia'],
+        ['Espania', 'Francia', 'Alemania', 'Portugal'],
+        ['Italia', 'Francia', 'Inglaterra', 'Brasil'],
         ]
 
     #Funcion que devuelve una pregunta aleatoria

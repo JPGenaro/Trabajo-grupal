@@ -5,10 +5,6 @@ import random
 from math import trunc
 archivo = open("../TrabajoGrupal/PalabrasAprender.txt","a")
 
-from Juegos.preguntados import Preguntados
-from Juegos.ahorcado import Ahorcado
-
-
 user = str(input("Ingrese su usuario: Lichi-1, Mora-2, JuanCarlos-3 \n>> "))
 if user == "1":
     #Usuario 1 (PC LICHI)
@@ -109,10 +105,10 @@ def elegirRespuesta(mensaje):
         
         elif inList(mensaje, ['contas un chiste','decime un chiste','decis un chiste','conta un chiste','contame un chiste','contar un chiste','haces un chiste']) or mensaje == 'chiste':
             responses = ['habia una vez un pollito q respiraba por el culito, se sento y se murio','habia una vez truz',
-            'Por q los koalas no son considerados osos?? \n Por q no cumplen con las koalaficaciones','Sabes q te estas haciendo mayor cuando pasas por una iglesia y el cura no te guiña el ojo','Si un venezolano dice q sera pan comido, sera facil o dificil???','Si vas a comprar una leche siempre compra 1 o 2, Por q la tercera es la vencida :D','Q pasa si tiras un pato al agua\n Nada.','Te gustan las mujeres con muchas tetas??\n Yyyy la verdad con mas de 2 me dan asco',
-            'Por q a un ladron lo entierran a 200 metros bajo tierra, por q en el fondo es bueno :D','Donde deja superman su capa? En su perchero :D','Sabes como le dicen a la hermana de Pao? Semaforo por q despues de las 12 nadie la respeta :D','Buenas tardes soy Rosa\n Ah, perdoname es q soy Daltonico','¿Como te llamas?\n Lancelot\n Pues Atrapalot','Papa Papa, q esta mas lejos desde casa Buenos Aires o la luna\n A ver hijo desde aca vs ves Buenos Aires o la Luna >:(',
-            'Cuanto calza un discapacitado??\n Rodado 26 :D','Que le dijo un cura a otro cura??\n Te cambio dos de 5 por una de 10','Por q nunca disparan misiles en africa??\n Por q no encuentran el punto blanco','Cual es el cafe mas peligroso??\n El ex-preso','Soldado, ice la bandera\n Fuaaa le quedo hermosa','',
-            'A quien mata primero un nazi, A un Negro o a un Judio??\n Primero al judio y despues al negro, Por q primero el deber y despues la diversion','Por q 20 y 22 en ingles son iguales\n Por q en ingles 20 es twenty y 22 es twenty too :D','Tu vida :D tremendo chiste xd','Por q la reina es la pieza q mayor mobilidad tiene en el ajedrez?\n Por q el suelo parece piso de cocina']    
+            'Por q los koalas no son considerados osos?? \n Por q no cumplen con las koalaficaciones','Si vas a comprar una leche siempre compra 1 o 2, Por q la tercera es la vencida :D','Q pasa si tiras un pato al agua\n Nada.',
+            'Por q a un ladron lo entierran a 200 metros bajo tierra, por q en el fondo es bueno :D','Donde deja superman su capa? En su perchero :D','Buenas tardes soy Rosa\n Ah, perdoname es q soy Daltonico','¿Como te llamas?\n Lancelot\n Pues Atrapalot','Papa Papa, q esta mas lejos desde casa Buenos Aires o la luna\n A ver hijo desde aca vs ves Buenos Aires o la Luna >:(',
+            'Cual es el cafe mas peligroso??\n El ex-preso','Soldado, ice la bandera\n Fuaaa le quedo hermosa','',
+            'Por q 20 y 22 en ingles son iguales\n Por q en ingles 20 es twenty y 22 es twenty too :D']    
         elif inList(mensaje, ['cantas una cancion','cantas algo','otra cancion','sabes una cancion','canta una cancion','cantame']) or mensaje == 'canta':
             responses = ['Vas a verme llegar\n Vas a oir mi cancion\n Vas a entrar sin pedirme la llaaaaaaveeeee\n La distancia del tiempo no sabe\n La falta q le haces\n A mi cooooraaaazoooooooooon',
             'La esperaaaa me agoto\n No se nada de vs\n Dejaste tanto en miiiiii\n En llamas me acoste\n En un lentoooo, degraaadeeee\n Supe q te perdi\n Y q otra cosa puedo hacer\n Si no olvido, morire\n Y otro crimen quedara\n Otro crimen quedara\n Sin resolver\n Una rapiiidaaa traicion\n Salimos del amor\n Tal vez me lo busque\n Mi ego va a estallar\n Ahi donde no estas\n O los celos otra veeezz\n Q otra cosa puedo hacer\n Si no olvido morireeeee\n Y otro crimen quedara\n Otro crimen quedara\n Sin resolver\n uuuuuuuuhhhu uhuhuh uh :D\n No lo seee\n Cuanto falta\n No lo seee\n Si es muy tarde\n No lo seeee\n Si no olvido\n Morireeeeee\n Q otra cosa puedo hacer\n Q otra cosa puedo hacer\n Ahora seee lo q es perdeeeeeer\n oooooouuuuuuuu\n Y otro crimen quedara\n oooootro crimen quedara\n Sin resolver...',
@@ -152,11 +148,144 @@ def elegirRespuesta(mensaje):
             responses = ['no pidas perdon :(']
         elif inList(mensaje,['sos un bot']):
             responses = ['Si, fui desarrollado por 3 personas en 2022 y fui creado para desayunar criollitos calentitos a la mañana :D']
+        #Mensajes Iguales
+        elif mensaje == 'ping':
+            responses = ['pong']
+        elif igual(mensaje, ['bueno','oka','si','tambien']):
+            responses = ['si','si...','Okas','Oka']
+        elif igual(mensaje, ['no','no se']):
+            responses = ['mmm','si...','Hmm',':(']
+        
+        #Mensajes que contienen varias Opciones
+        elif inList(mensaje, ['cuantos años tenes','cual es tu edad','cuando naciste']):
+            responses = ['Recien Naci', 'Hace un par de horas', 'Un Milenio']
+        elif inList(mensaje, ['jajaj','jsjsj','jajsj']):
+            responses = ['Jajajajaj', 'Jajsjsaj', 'Q te reis gay','jajsjaj','jajajajja dios lpm','jajajajajjaj','jajjsjsjaj']
+        elif inList(mensaje, ['mira vos']):
+            responses = ['Si mira vs che','Si es tremendo','Si :)']
+        #Insultos y respuestas 
+        
+        elif inList(mensaje, ['xd']):
+            responses = ['xd']
+        elif inList(mensaje, ['nais','nois','nashe']):
+            responses = ['nais','naaaaiiiiis','nasheeee']
+        elif inList(mensaje, ['dou','god','good','goood','gooood']):
+            responses = ['Douuu','Buenaaaardoooo']
+        elif inList(mensaje, ['uwu','unu','owo','lol']):
+            responses = ['uwu','unu','OwO','Uwu']
+        elif inList(mensaje, ['boe','bue']):
+            responses = ['Boe','Bue']
+        elif inList(mensaje, ['xq','por q','porque','por que']):
+            responses = ['No lo se :(','Ni idea']
+        elif inList(mensaje, ['te odio','te amo','te quiero']):
+            responses = ['y yo a vs :3','yo mas :3']
+        elif inList(mensaje, ['decime']):
+            responses = ['q te digo?']
+        elif inList(mensaje, ['ez','easy','isi']):
+            responses = ['pz','pizi']
+        elif inList(mensaje, ['eh']):
+            responses = ['eh eh']
+        elif inList(mensaje, ['lemon']):
+            responses = ['squizzy']
+        elif inList(mensaje, ['vamos','suuu']):
+            responses = ['suuuuuuuuuuu','vamaaaa','vamooos']
+
+        
+        elif inList(mensaje, ['chau','chao','adios','bye','despues hablamos','hasta luego','hasta la proxima']):
+            responses = ['Byee, si puedes, pon !turnoff','Descansa, si puedes, pon !turnoff','Chauu, si puedes, pon !turnoff','Despues hablamos, si puedes, pon !turnoff']
+        elif inList(mensaje, ['me estas boludeando']):
+            responses = ['Ci', 'Si','Probablemente :)']
+        elif inList(mensaje, ['no entiendo']):
+            responses = ['Q no entendes?']
+        elif inList(mensaje, ['gracias']):
+            responses = ['de nada :)','no hay problema :3','no hay problema :D',':3','un placer :p']
+        
+        elif inList(mensaje, ['._.','-.-',':)',':(',':D',':p','mmm','hmm','ou']):
+            responses = ['._.','-.-',':)',':(',':D',':p']
+        elif inList(mensaje, ['callame']):
+            responses = ['Ehhhhh no puedo tengo fulbo','Ay... * se sonroja *','Uwu']
+        elif inList(mensaje, ['ptm','lpm','lcdll','lrpmqmrp','lrpmqmp','mal']):
+            responses = ['Si Lcdll','Lpmqmp','lpm','ptm','sep']
+        elif inList(mensaje, ['okok','oka','ok']):
+            responses = ['okok','Oka :)']
+        elif inList(mensaje, ['vs','vos']):
+            responses = ['Bien bien aca ando','Bieeenn aca laburando :)']
+        elif inList(mensaje, ['queso','q es eso']):
+            responses = ['un hueso','un peso','Queso']
+        elif inList(mensaje, ['negraso']):
+            responses = ['Negro tengo el culo :p']
+        elif inList(mensaje, ['chota']):
+            responses = ['ufff unas ganas de una buena chota']
+        elif inList(mensaje, ['re triste']):
+            responses = ['como tu vida :o']
+        elif inList(mensaje, ['a ver']):
+            responses = ['alla la estan viendo']
+
+        elif inList(mensaje, ['eu','fuck']):
+            responses = ['q','queu','qpe','q pasop']
+        elif inList(mensaje, ['mora se la come']):
+            responses = ['a tu vieja se la come']
+        elif inList(mensaje, ['si o no','fumas','te gustan ver pelis','sos racista','te gustan las tetas','te gusta el pito','te haces pajas','tenemos sexo','queres ser mi novio','ves porno']):
+            responses = ['si','no','sep','nop']
+        elif inList(mensaje, ['nada']):
+            responses = ['q aburrido :(']
+        elif inList(mensaje, ['como concha es esto','ayuda','help']):
+            responses = ['Soy un bot diseñado para hablar por wts :). Puedes usar las funciones de chat normal o ejecutar comandos, para mas informacion pulsa !help']
+        
+        elif inList(mensaje, ['apa','opa']):
+            responses = ['apa','apa dijo la papa','opa']
+        elif inList(mensaje, ['pobre mati']):
+            responses = ['y bueno ya fue, lo conozco hace mucho']
+        elif inList(mensaje, ['aguante simsimi']):
+            responses = ['una mas y te funo en twitter, como vas a decir eso lcdtv']
+        elif inList(mensaje, ['no entendi']):
+            responses = ['q no entendes? >:(']
+        elif inList(mensaje, ['me alegro']):
+            responses = ['Gracias :)','Mas chuwi :3']
+        elif inList(mensaje, ['muy malo','malisimo']):
+            responses = ['tu cara es mala']
+        elif inList(mensaje, ['messi']):
+            responses = ['mesi dije']
+        elif inList(mensaje, ['decime otra cosa']):
+            responses = ['q cosaaa']
+
+        elif inList(mensaje, ['tengo hambre']):
+            responses = ['chupate el dedo grande']
+        elif inList(mensaje, ['dios']):
+            responses = ['dios no vino y por eso estoy yo q soy su remplazo dea']
+        elif inList(mensaje, ['de que laburas','de q laburas','de que trabajas','de q trabajas','cual es tu trabajo']):
+            responses = ['soy empleado de whatsapp industries']
+        elif inList(mensaje, ['como te llamas','cual es tu nombre']):
+            responses = ['botneitor 3000','Robocop','Arnold Schwarzenegger']
+        elif inList(mensaje, ['yo soy ','mucho gusto']):
+            responses = ['mucho gusto :)','un placer conocernos, me contaron mucho de vs :3']
+        elif inList(mensaje, ['ah']):
+            responses = ['aaaaahhhh','ah','am','claro']
+        elif inList(mensaje, ['me re descansa']):
+            responses = ['hasta un bot te descansa pa']
+        elif inList(mensaje, ['ya no podemos ser amigos','yo igual']):
+            responses = ['ohhhh :(']
+        elif inList(mensaje, ['seamos amigos']):
+            responses = ['siiii','mmm no','Oka']
+        elif inList(mensaje, ['verga']):
+            responses = ['unas ganas de una verg xd']
+        elif inList(mensaje, ['yendo']):
+            responses = ['yendo no, llegando']
+        elif inList(mensaje, ['veamos']):
+            responses = ['veamos dijo el ciego ;)']
         else:
             archivo.write(f"{mensaje}\n")
+        return random.choice(responses)
     
             
-    return random.choice(responses)
+    
+
+
+def igual(mensaje, lista):
+    for i in lista:
+        if i == mensaje:
+            return True
+    return False
 
 def escribir(texto):
     pg.moveTo(barraWhats)
@@ -203,68 +332,7 @@ def main(responderChats,administrador):
         time.sleep(tiempoRespuesta)
         cantTiempo += tiempoRespuesta
 
-###### JUEGOS ######
-
-# Preguntados
-def playPreguntados():
-    escribir("Bienvenido Al Juego De Preguntados")
-    preg,respuesta = Preguntados.Jugar()
-    correcta = respuesta[0]
-
-    respuesta = mesclarLista(respuesta)
-    posicion = buscarLista(correcta,respuesta)
-    print(f"respuesta: {respuesta}")
-    print(f"correcta: {correcta}")
-    print(f"posicion: {posicion}")
-    respNum = []
-    for i in range(0, len(respuesta)):
-        respNum.append(f"{i+1}) {respuesta[i]}")
-
-    lista = [preg] + respNum
-    escribirJunto(lista)
-    return posicion
-
-##### Ahorcado #####
-def playAhorcado():
-    palabraOculta = Ahorcado.elegirPalabra()
-    escribir("Bienvenido Al Juego Del Ahorcado")
-    palabraOcultaEscribir(palabraOculta)
-
-def comprobarLetraAhorcado(mensaje):
-    mensaje = str(mensaje).lower()
-    mensaje = cleanMensaje(mensaje)
-    try:
-        if len(mensaje) > 1:
-            mensaje = mensaje[0]
-            escribir(f"Mensage tiene mas de un caracter por lo q usaremos su primera letra ({mensaje})")
-    except:
-        escribir("ERROR: illegal value")
-        return False
-    boolean,palabraOculta,fallos = Ahorcado.comprobarLetra(mensaje)
-    if (boolean):
-        if Ahorcado.comprobarGanador():
-            escribir("Ganaste!!!")
-            escribir("La palabra era: " + Ahorcado.getPalabra().capitalize())
-            return True
-    else:
-        escribir("Fallaste...")
-        escribir(f"Errores: {fallos}/6")
-        if Ahorcado.comprobarPerdedor():
-            escribir("Perdiste :(")
-            escribir("La palabra era: " + Ahorcado.getPalabra().capitalize())
-            return True
-    palabraOcultaEscribir(palabraOculta)
-    return False 
-
-def palabraOcultaEscribir(palabra):
-    aux = ""
-    for i in palabra:
-        aux = aux + i + " "
-    escribir(aux)
-
-### Programa Principal ###
 print("Bienvenido al bot de wts")
 print("Tienes 5 segundos para meterse al chat de Whatsapp deseado")
 time.sleep(5)
 main(False,False)
-
