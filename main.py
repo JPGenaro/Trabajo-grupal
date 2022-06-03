@@ -6,8 +6,6 @@ from math import trunc
 archivo = open("../TrabajoGrupal/PalabrasAprender.txt","a")
 
 from Juegos.preguntados import Preguntados
-from Juegos.ahorcado import Ahorcado
-
 
 user = str(input("Ingrese su usuario: Lichi-1, Mora-2, JuanCarlos-3 \n>> "))
 if user == "1":
@@ -205,62 +203,6 @@ def main(responderChats,administrador):
 
 ###### JUEGOS ######
 
-# Preguntados
-def playPreguntados():
-    escribir("Bienvenido Al Juego De Preguntados")
-    preg,respuesta = Preguntados.Jugar()
-    correcta = respuesta[0]
-
-    respuesta = mesclarLista(respuesta)
-    posicion = buscarLista(correcta,respuesta)
-    print(f"respuesta: {respuesta}")
-    print(f"correcta: {correcta}")
-    print(f"posicion: {posicion}")
-    respNum = []
-    for i in range(0, len(respuesta)):
-        respNum.append(f"{i+1}) {respuesta[i]}")
-
-    lista = [preg] + respNum
-    escribirJunto(lista)
-    return posicion
-
-##### Ahorcado #####
-def playAhorcado():
-    palabraOculta = Ahorcado.elegirPalabra()
-    escribir("Bienvenido Al Juego Del Ahorcado")
-    palabraOcultaEscribir(palabraOculta)
-
-def comprobarLetraAhorcado(mensaje):
-    mensaje = str(mensaje).lower()
-    mensaje = cleanMensaje(mensaje)
-    try:
-        if len(mensaje) > 1:
-            mensaje = mensaje[0]
-            escribir(f"Mensage tiene mas de un caracter por lo q usaremos su primera letra ({mensaje})")
-    except:
-        escribir("ERROR: illegal value")
-        return False
-    boolean,palabraOculta,fallos = Ahorcado.comprobarLetra(mensaje)
-    if (boolean):
-        if Ahorcado.comprobarGanador():
-            escribir("Ganaste!!!")
-            escribir("La palabra era: " + Ahorcado.getPalabra().capitalize())
-            return True
-    else:
-        escribir("Fallaste...")
-        escribir(f"Errores: {fallos}/6")
-        if Ahorcado.comprobarPerdedor():
-            escribir("Perdiste :(")
-            escribir("La palabra era: " + Ahorcado.getPalabra().capitalize())
-            return True
-    palabraOcultaEscribir(palabraOculta)
-    return False 
-
-def palabraOcultaEscribir(palabra):
-    aux = ""
-    for i in palabra:
-        aux = aux + i + " "
-    escribir(aux)
 
 ### Programa Principal ###
 print("Bienvenido al bot de wts")
