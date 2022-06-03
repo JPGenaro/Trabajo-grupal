@@ -2,7 +2,8 @@ import random
 
 class Preguntados:
     def __init__(self):
-        self.preguntas = ['¿Cuantas zonas horarias tiene en Rusia?',
+        self.preguntas = [
+        '¿Cuantas zonas horarias tiene en Rusia?',
         '¿Cual es el animal nacional de Australia?',
         'En un Anio viciesto, ¿Cuantos dias le toma a la tierra dar una vuelta a la orbita del sol?',
         '¿Cual de los siguientes imperios no tenia un idioma escrito?',
@@ -38,7 +39,7 @@ class Preguntados:
         '¿Cual es el pais mas grande del mundo?',
         '¿cual fue el primer imperio que existio en el mundo?',
         '¿Quien gano el mundial de 2010?',
-        '¿Quien gano el mundial de 2006?',
+        '¿Quien gano el mundial de 2006?'
         ]
         self.respuestas = [
         ['11','12','9','10'],
@@ -77,7 +78,7 @@ class Preguntados:
         ['Rusia', 'Australia', 'China', 'India'],
         ['Acadio', 'Egipto', 'Grecia', 'Persia'],
         ['Espania', 'Francia', 'Alemania', 'Portugal'],
-        ['Italia', 'Francia', 'Inglaterra', 'Brasil'],
+        ['Italia', 'Francia', 'Inglaterra', 'Brasil']
         ]
 
     #Funcion que devuelve una pregunta aleatoria
