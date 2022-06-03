@@ -184,7 +184,7 @@ def main(responderChats,administrador):
     pos = 0
     cantMensajesRecibidos = 0
     cantTiempo = 0
-    tiempoRespuesta = 0.1
+    tiempoRespuesta = 0.3
     respuesta = ""
     escribir("Bot Iniciado")
     while True:
