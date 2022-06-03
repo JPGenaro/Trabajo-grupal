@@ -3,7 +3,6 @@ import time
 import pyperclip as clip
 import random
 from math import trunc
-archivo = open("../Trabajo-grupal/PalabrasAprender.txt","a")
 
 from Juegos.preguntados import Preguntados
 preguntados = Preguntados()
@@ -155,7 +154,7 @@ def elegirRespuesta(mensaje):
         elif inList(mensaje,['sos un bot']):
             responses = ['Si, fui desarrollado por 3 personas en 2022 y fui creado para desayunar criollitos calentitos a la mañana :D']
         else:
-            archivo.write(f"{mensaje}\n")
+            pass
     
             
     return random.choice(responses)
