@@ -7,6 +7,12 @@ from math import trunc
 from Juegos.preguntados import Preguntados
 preguntados = Preguntados()
 
+nombreBot = 'Sffredo'
+canciones = ['https://www.youtube.com/watch?v=T3p75qO0QAE&ab_channel=GustavoCeratiOficial','https://www.youtube.com/watch?v=hyrqdknARv0&ab_channel=Cheskoslavia','https://www.youtube.com/watch?v=2VrAp-jhJh8&ab_channel=ZODIVK-Topic',
+'https://www.youtube.com/watch?v=dmW68lzaaqs&ab_channel=PauloLondra','https://www.youtube.com/watch?v=QkngZ1P3aKw&ab_channel=JuankaElProblematik','https://www.youtube.com/watch?v=oGiokXDKDdM&ab_channel=GokleX-Kakarotoxd8','https://www.youtube.com/watch?v=XXYlFuWEuKI&ab_channel=TheWeekndVEVO',
+'https://www.youtube.com/watch?v=GX8Hg6kWQYI&ab_channel=XXXTENTACION','https://www.youtube.com/watch?v=cHsKzdyXDH0&list=RDMM&index=19','https://www.youtube.com/watch?v=T3p75qO0QAE&ab_channel=GustavoCeratiOficial','https://www.youtube.com/watch?v=S2ujotDMluo&ab_channel=EngelbertHumperdinck','https://youtu.be/mCdA4bJAGGk'
+]
+musicaElegida = True
 
 user = str(input("Ingrese su usuario: Lichi-1, Mora-2, JuanCarlos-3 \n>> "))
 if user == "1":
@@ -20,6 +26,7 @@ if user == "1":
     ubMensaje = 533, 631
     msj_color = 32, 44, 51
     ubTextoMensaje = 539, 621
+    ventana1 = 0,0
 elif user == "2":
     #Usuario 2 (PC MORA)
     barraWhats = 700, 695
@@ -31,6 +38,7 @@ elif user == "2":
     ubMensaje = 565, 626
     msj_color = 32, 44, 51
     ubTextoMensaje = 570,620
+    ventana1 = 80,15
 else:
     #Usuario 3 (PC GENARO)
     barraWhats = 581, 733
@@ -42,6 +50,7 @@ else:
     ubMensaje = 500, 679
     msj_color = 32, 44, 51
     ubTextoMensaje = 510,667
+    ventana1 = 123,13
 
 def getMensaje():
     pg.moveTo(ubTextoMensaje)
@@ -81,6 +90,8 @@ def elegirRespuesta(mensaje):
                 return "func3"
             elif mensaje == "!presentacion":
                 return "func4"
+            elif mensaje == "!musica":
+                return "func5"
             else:
                 responses = ['ERROR: Comand Not Found']
     
@@ -160,8 +171,8 @@ def elegirRespuesta(mensaje):
             
     return random.choice(responses)
 
-def escribir(texto):
-    pg.moveTo(barraWhats)
+def escribir(texto,ubicacion = barraWhats):
+    pg.moveTo(ubicacion)
     pg.typewrite(f"{texto}\n")
 def escribirJunto(lista):
     pg.moveTo(barraWhats)
@@ -208,14 +219,16 @@ def main(responderChats,administrador):
                 escribir("Bot Apagado...")
                 break
             elif response == "func1":
-                escribirJunto(["!turnoff: Apagar Bot","!help: Ayuda con comandos","!info: Ve informacion del Bot","!preguntados: Jugar al preguntados",'!precentacion: Ve la presentacion del Bot'])
+                escribirJunto(["!turnoff: Apagar Bot","!help: Ayuda con comandos","!info: Ve informacion del Bot","!preguntados: Jugar al preguntados",'!presentacion: Ve la presentacion del Bot','!musica: Elije una cancion de nuestra playlist!!!'])
             elif response == "func2":
-                escribirJunto(["*Bot*",'Version: 0.5','_Autor: @Lisandro Marquez_','_Autor: @Juan Carlos Genaro_','_Autor: @Joaquin Morais_','GitHub: https://github.com/JPGenaro/Trabajo-grupal','Cantidad de mensajes recibidos: '+str(cantMensajesRecibidos),'Tiempo desde la iniciacion: '+str((trunc(100*cantTiempo))/100)+' segundos'])
+                escribirJunto([f"*Bot {nombreBot}*",'Version: 0.5','_Autor: @Lisandro Marquez_','_Autor: @Juan Carlos Genaro_','_Autor: @Joaquin Morais_','GitHub: https://github.com/JPGenaro/Trabajo-grupal','Cantidad de mensajes recibidos: '+str(cantMensajesRecibidos),'Tiempo desde la iniciacion: '+str((trunc(100*cantTiempo))/100)+' segundos'])
             elif response == 'func3':
                 modo = 1
                 pos =playPreguntados()
             elif response == 'func4':
-                escribirJunto(['Hola, Buenas tardes','Soy un bot de Whatsapp desarrollado con Python usando la libreria de pyautogui por 3 alumnos del ITS Villada', 'Soy capaz de responder cosas simples y jugar a un juego de trivia','Para ver las funciones que puedo hacer, escriba !help','Muchas Gracias!!!'])
+                escribirJunto(['Hola, Buenas tardes',f'Soy un bot de Whatsapp llamado {nombreBot} desarrollado con Python usando la libreria de pyautogui por 3 alumnos del ITS Villada','Soy capaz de responder cosas simples y jugar a un juego de trivia','Para ver las funciones que puedo hacer, escriba !help','Puedes ver el codigo y probarlo en el link a continuacion _https://github.com/JPGenaro/Trabajo-grupal_','Muchas Gracias!!!'])
+            elif response == 'func5':
+                ponerMusica()
                 
             else:
                 escribir(response)
@@ -257,6 +270,31 @@ def mesclarLista(lista):
 
 def buscarLista(n, lista):
     return lista.index(n)
+# Musica # Func5
+def ponerMusica():
+    global musicaElegida
+    if musicaElegida:
+        abrirVentanaMusica()
+        musicaElegida = False
+    else:
+        escribir("Ya hay una cancion seleccionada")
+
+def abrirVentanaMusica():
+    pg.hotkey('ctrl','t')
+    cancion =random.choice(canciones)
+    pg.typewrite(cancion)
+    pg.hotkey('enter')
+    time.sleep(1)
+    pg.hotkey('ctrl','w')
+    escribir(f'cancion elegida: {cancion} :)')
+    
+
+
+
+
+
+
+
 
 ### Programa Principal ###
 print("Bienvenido al bot de wts")
