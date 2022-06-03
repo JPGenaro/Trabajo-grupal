@@ -33,7 +33,10 @@ class Preguntados:
         '¿Como se llama la iconica cafeteria de Friends?',
         '¿cual fue el primer imperio que existio en el mundo?',
         '¿Quien gano el mundial de 2010?',
-        '¿Quien gano el mundial de 2006?'
+        '¿Quien gano el mundial de 2006?',
+        '¿Cuantos huesos tiene el cuerpo humano adulto?',
+        '¿Cuantos continentes hay en el mundo?',
+        
         ]
         self.respuestas = [
         ['11','12','9','10'],
@@ -66,7 +69,9 @@ class Preguntados:
         ['Central Perk','Little Collins','Frisson Espresso','Brooklyn Roasting Company'],
         ['Acadio', 'Egipto', 'Grecia', 'Persia'],
         ['Espania', 'Francia', 'Alemania', 'Portugal'],
-        ['Italia', 'Francia', 'Inglaterra', 'Brasil']
+        ['Italia', 'Francia', 'Inglaterra', 'Brasil'],
+        ['206', '300', '251', '220'],
+        ['7', '6', '5', '8'],
         ]
 
     #Funcion que devuelve una pregunta aleatoria
