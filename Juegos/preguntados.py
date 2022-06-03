@@ -23,7 +23,7 @@ class Preguntados:
         '¿De donde es Billie Eilish?',
         '¿De que ciudad son originarios los Beatles?',
         '¿Cual es la cancion mas reproducida en Spotify hasta el momento?',
-        '¿Cuantas teclas tiene un piano?',
+        '¿Cuantas teclas tiene en promedio un piano?',
         '¿Que banda americana se llamaba originalmente, “Kara’s Flowers”?',
         '¿Que equipo de futbol se le conoce como ‘The Red Devils’?',
         '¿Que conductor de la Formula 1 ha ganado mas campeonatos?',
@@ -31,12 +31,6 @@ class Preguntados:
         '¿Cuando se fundo Netflix?',
         '¿Cual fue la serie mas vista en Netflix en el 2019?',
         '¿Como se llama la iconica cafeteria de Friends?',
-        '¿Cual fue la primer pelicula de Disney?',
-        '¿Cual es la primera pelicula de la saga de “El Hobbit”?',
-        '¿Cual es la capital de Austria?',
-        '¿De que pais se independizo Eslovenia?',
-        '¿Que pais africano fue fundado por esclavos americanos liberados en 1847?'
-        '¿Cual es el pais mas grande del mundo?',
         '¿cual fue el primer imperio que existio en el mundo?',
         '¿Quien gano el mundial de 2010?',
         '¿Quien gano el mundial de 2006?'
@@ -70,12 +64,6 @@ class Preguntados:
         ['1997','2001','2009','2005'],
         ['Stranger Things','The Office','The Walking Dead','The Simpsons'],
         ['Central Perk','Little Collins','Frisson Espresso','Brooklyn Roasting Company'],
-        ['Blanca Nieves','Cenicienta','Babylon','Dumbo'],
-        ['Un Viaje Inesperado','La Desolacion De Smaug','La Batalla De Los Cinco Ejercitos','La Comunidad Del Anillo'],
-        ['Viena','Varsovia','Berlin','Budapest'],
-        ['Yugoslavia','Del Imperio Austriaco','Croacia','Italia'],
-        ['Liberia','Ghana','Sokoto','Benin'],
-        ['Rusia', 'Australia', 'China', 'India'],
         ['Acadio', 'Egipto', 'Grecia', 'Persia'],
         ['Espania', 'Francia', 'Alemania', 'Portugal'],
         ['Italia', 'Francia', 'Inglaterra', 'Brasil']
@@ -91,3 +79,6 @@ class Preguntados:
     def Contar(self):
         print(len(self.preguntas))
         print(len(self.respuestas))
+
+preguntados = Preguntados()
+preguntados.Contar()

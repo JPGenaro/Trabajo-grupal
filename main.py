@@ -209,7 +209,7 @@ def main(responderChats,administrador):
             elif response == "func1":
                 escribirJunto(["!turnoff: Apagar Bot","!help: Ayuda con comandos","!info: Ve informacion del Bot","!preguntados: Jugar al preguntados"])
             elif response == "func2":
-                escribirJunto(["*Bot*",'Version: 0.4','_Autor: @Lisandro Marquez_','_Autor: @Juan Carlos Genaro_','_Autor: @Joaquin Morais_','GitHub: https://github.com/JPGenaro/TrabajoGrupal','Cantidad de mensajes recibidos: '+str(cantMensajesRecibidos),'Tiempo desde la iniciacion: '+str((trunc(100*cantTiempo))/100)+' segundos'])
+                escribirJunto(["*Bot*",'Version: 0.5','_Autor: @Lisandro Marquez_','_Autor: @Juan Carlos Genaro_','_Autor: @Joaquin Morais_','GitHub: https://github.com/JPGenaro/Trabajo-grupal','Cantidad de mensajes recibidos: '+str(cantMensajesRecibidos),'Tiempo desde la iniciacion: '+str((trunc(100*cantTiempo))/100)+' segundos'])
             elif response == 'func3':
                 #escribir("Esta funcion esta desabilitada momentaneamente, intente mas tarde...")
                 modo = 1
