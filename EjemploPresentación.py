@@ -8,7 +8,7 @@ t.sleep(.3)
 pg.typewrite('cmd\n',0.1)
 t.sleep(.5)
 pg.typewrite('mspaint\n',0.1)
-t.sleep(3)
+t.sleep(10)
 pg.moveTo(500,400,duration=0.2)
 while distance > 0:
     pg.drag(distance, 0, duration=0.01)   # move right
