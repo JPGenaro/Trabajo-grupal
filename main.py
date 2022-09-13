@@ -5,6 +5,7 @@ import random
 from math import trunc
 
 from Juegos.preguntados import Preguntados
+from cerebro import palabras
 
 preguntados = Preguntados()
 
@@ -115,8 +116,12 @@ def elegirRespuesta(mensaje):
             else:
                 responses = ["ERROR: Comand Not Found"]
 
-        elif mensaje == "ping":
-            responses = ["pong"]
+        elif True:
+            for i in range(0,len(palabras),2):
+                if isEqual(mensaje, palabras[i]):
+                    responses = palabras[i+1]
+                
+        
         elif isEqual(mensaje, ["bueno", "oka", "si", "tambien"]):
             responses = ["si", "si...", "Okas", "Oka"]
         elif isEqual(mensaje, ["no", "no se"]):
