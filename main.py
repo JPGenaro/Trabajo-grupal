@@ -41,16 +41,11 @@ if user == "1":
     ventana1 = 0, 0
 elif user == "2":
     # Usuario 2 (PC MORA)
-    barraWhats = 700, 695
-    chatSelect = 215, 360
-    chatSelect2 = 215, 440
-    chat1 = 315, 247
-    chat2 = 315, 317
+    barraWhats = 690, 500
     green = 0, 168, 132
-    ubMensaje = 565, 626
+    ubMensaje = 500, 636
     msj_color = 32, 44, 51
-    ubTextoMensaje = 570, 620
-    ventana1 = 80, 15
+    ubTextoMensaje = 509, 629
 else:
     # Usuario 3 (PC GENARO)
     barraWhats = 581, 733
@@ -66,12 +61,19 @@ else:
 
 
 def getMensaje():
+ 
     pg.moveTo(ubTextoMensaje)
     pg.tripleClick()
     pg.hotkey("ctrl", "c")
-    msg = clip.paste()
+    time.sleep(0.5)
+    try:
+        msg = clip.paste()
+    except Exception as e:
+        msg=""
+        print(e)
     pg.click()
     msg = cleanMensaje(msg)
+    print(msg)
     return msg
 
 
@@ -116,12 +118,8 @@ def elegirRespuesta(mensaje):
             else:
                 responses = ["ERROR: Comand Not Found"]
 
-        elif True:
-            for i in range(0,len(palabras),2):
-                if isEqual(mensaje, palabras[i]):
-                    responses = palabras[i+1]
-                
-        
+        elif isEqual(mensaje,["ping"]):
+            responses=["pong"]    
         elif isEqual(mensaje, ["bueno", "oka", "si", "tambien"]):
             responses = ["si", "si...", "Okas", "Oka"]
         elif isEqual(mensaje, ["no", "no se"]):
@@ -489,5 +487,6 @@ def pausarMusica():
 ### Programa Principal ###
 print("Bienvenido al bot de wts")
 print("Tienes 5 segundos para meterse al chat de Whatsapp deseado")
+print(f"Usuario: {user} / {ubMensaje}")
 time.sleep(5)
 main(False, False)
