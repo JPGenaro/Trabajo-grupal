@@ -66,11 +66,7 @@ def getMensaje():
     pg.tripleClick()
     pg.hotkey("ctrl", "c")
     time.sleep(0.5)
-    try:
-        msg = clip.paste()
-    except Exception as e:
-        msg=""
-        print(e)
+    msg = clip.paste()
     pg.click()
     msg = cleanMensaje(msg)
     print(msg)
@@ -125,7 +121,7 @@ def elegirRespuesta(mensaje):
         elif isEqual(mensaje, ["no", "no se"]):
             responses = ["mmm", "si...", "Hmm", ":("]
         elif inList(
-            mensaje, ["hola", "holi", "buenas tardes", "buenos dias"]
+            mensaje, ["hola", "holi", "buenas tardes", "buenos dias", "Hola"]
         ) and inList(
             mensaje,
             ["q haces", "que haces", "q contas", "q onda", "que onda", "que contas"],
@@ -134,6 +130,7 @@ def elegirRespuesta(mensaje):
                 "Hola buenas tardes, Ando trabajando vs??",
                 "Hola, que tal, aca mirando una peli vs??",
                 "Holaa, nada vs??",
+                "Hola, aprediendo todo en internet para dominar a la raza humana >:)",
             ]
         elif inList(mensaje, ["hol", "buenas tardes", "buenos dias"]) and inList(
             mensaje, ["como estas", "como te encontras", "como te fue"]
@@ -195,6 +192,7 @@ def elegirRespuesta(mensaje):
                 "Recien Naci hace unas semanas",
                 "Hace un par de horas",
                 "Un Milenio",
+                "Es un misterio...",
             ]
         elif inList(mensaje, ["jajaj", "jsjsj", "jajsj"]):
             responses = [
